@@ -1,0 +1,987 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Blackboard Ultra - Asignaturas UDIT</title>
+  <!-- Tailwind CSS para diseño fluido y responsive -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Google Fonts - Inter para máxima legibilidad corporativa -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+    }
+    .view-transition {
+      transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .custom-scrollbar::-webkit-scrollbar {
+      width: 6px;
+      height: 6px;
+    }
+    .custom-scrollbar::-webkit-scrollbar-track {
+      background: #f1f1f1;
+    }
+    .custom-scrollbar::-webkit-scrollbar-thumb {
+      background: #c1c1c1;
+      border-radius: 3px;
+    }
+    .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+      background: #a8a8a8;
+    }
+  </style>
+</head>
+<body class="bg-[#f7f7f9] text-[#2d2d2d] min-h-screen flex overflow-x-hidden antialiased">
+
+  <div class="flex w-full min-h-screen">
+    
+    <!-- MENÚ LATERAL (Estilo Blackboard Ultra - Oscuro) -->
+    <aside class="w-64 bg-[#121212] text-[#d0d0d0] flex flex-col justify-between flex-shrink-0 z-20 shadow-xl hidden md:flex">
+      <div>
+        <!-- Logo de la Universidad (UDIT) -->
+        <div class="p-6 border-b border-[#222222]">
+          <div class="flex items-center">
+            <img src="LOGOS_UDIT_INNOVACION_Negativo_Inferior.svg" alt="UDIT - Universidad de Diseño, Innovación y Tecnología" class="h-14 w-auto">
+          </div>
+        </div>
+
+        <!-- Información de Usuario: Sonia Rodríguez (Como en image_1d6fdb.png) -->
+        <div class="px-6 py-4 flex items-center space-x-3 border-b border-[#222222]">
+          <div class="relative flex-shrink-0">
+            <img class="h-9 w-9 rounded-full object-cover border-2 border-[#9d3bf5]" src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&q=80&w=120" alt="Sonia Rodriguez" onerror="this.src='https://placehold.co/100x100/9d3bf5/ffffff?text=SR'">
+            <span class="absolute bottom-0 right-0 h-2.5 w-2.5 rounded-full bg-green-500 border-2 border-[#121212]"></span>
+          </div>
+          <div class="overflow-hidden">
+            <p class="text-xs font-semibold text-white truncate">Sonia Rodríguez F.</p>
+            <p class="text-[10px] text-[#888888] truncate">Estudiante</p>
+          </div>
+        </div>
+
+        <!-- Enlaces de Navegación Lateral -->
+        <nav class="mt-4 px-3 space-y-1">
+          <a href="#" class="flex items-center space-x-3 px-3 py-2.5 rounded text-xs font-medium hover:bg-[#1e1e1e] hover:text-white transition group">
+            <svg class="h-4 w-4 text-gray-400 group-hover:text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/>
+            </svg>
+            <span>Inicio</span>
+          </a>
+          <a href="#" class="flex items-center space-x-3 px-3 py-2.5 rounded text-xs font-medium hover:bg-[#1e1e1e] hover:text-white transition group">
+            <svg class="h-4 w-4 text-gray-400 group-hover:text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
+            </svg>
+            <span>Actividad</span>
+          </a>
+          <a href="#" class="flex items-center space-x-3 px-3 py-2.5 rounded text-xs font-semibold bg-[#2c2c2c] text-white transition border-l-4 border-[#9d3bf5]">
+            <svg class="h-4 w-4 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
+            </svg>
+            <span>Asignaturas</span>
+          </a>
+          <a href="#" class="flex items-center space-x-3 px-3 py-2.5 rounded text-xs font-medium hover:bg-[#1e1e1e] hover:text-white transition group">
+            <svg class="h-4 w-4 text-gray-400 group-hover:text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 3V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/>
+            </svg>
+            <span>Calendario</span>
+          </a>
+          <a href="#" class="flex items-center space-x-3 px-3 py-2.5 rounded text-xs font-medium hover:bg-[#1e1e1e] hover:text-white transition group">
+            <svg class="h-4 w-4 text-gray-400 group-hover:text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+            </svg>
+            <span>Mensajes</span>
+          </a>
+          <a href="#" class="flex items-center space-x-3 px-3 py-2.5 rounded text-xs font-medium hover:bg-[#1e1e1e] hover:text-white transition group">
+            <svg class="h-4 w-4 text-gray-400 group-hover:text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+            </svg>
+            <span>Calificaciones</span>
+          </a>
+          <a href="#" class="flex items-center space-x-3 px-3 py-2.5 rounded text-xs font-medium hover:bg-[#1e1e1e] hover:text-white transition group">
+            <svg class="h-4 w-4 text-gray-400 group-hover:text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" />
+            </svg>
+            <span>Herramientas</span>
+          </a>
+        </nav>
+      </div>
+
+      <!-- Footer inferior del panel de navegación -->
+      <div class="p-4 border-t border-[#222222] space-y-3">
+        <a href="#" class="flex items-center space-x-2 text-[11px] text-gray-400 hover:text-white transition">
+          <svg class="h-3.5 w-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
+          </svg>
+          <span>Administrador</span>
+        </a>
+        <a href="#" class="flex items-center space-x-2 text-[11px] text-gray-400 hover:text-red-400 transition">
+          <svg class="h-3.5 w-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1" />
+          </svg>
+          <span>Cerrar sesión</span>
+        </a>
+        <div class="text-[9px] text-[#555555] space-y-0.5 pt-2 border-t border-[#222222]">
+          <p><span class="hover:underline cursor-pointer">Privacidad</span> • <span class="hover:underline cursor-pointer">Condiciones</span></p>
+          <p class="hover:underline cursor-pointer">Accesibilidad</p>
+        </div>
+      </div>
+    </aside>
+
+    <!-- ÁREA DE CONTENIDO PRINCIPAL -->
+    <main class="flex-1 flex flex-col min-w-0 overflow-y-auto custom-scrollbar">
+      
+      <!-- CABECERA DE SECCIÓN (Asignaturas) -->
+      <header class="bg-white border-b border-[#e5e7eb] px-6 lg:px-10 py-5 flex-shrink-0">
+        <div class="max-w-7xl mx-auto flex justify-between items-center">
+          <div class="flex items-center space-x-3">
+            <!-- Menú móvil hamburguesa -->
+            <button class="md:hidden p-2 rounded hover:bg-gray-100 text-[#2d2d2d]" onclick="toggleMobileMenu()" aria-label="Abrir menú">
+              <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+              </svg>
+            </button>
+            <h1 class="text-2xl lg:text-3xl font-serif font-normal text-[#121212] tracking-tight">Asignaturas</h1>
+          </div>
+          <!-- Notificaciones rápidas -->
+          <div class="flex items-center space-x-4 text-gray-500">
+            <button class="p-1.5 hover:bg-gray-100 rounded-full transition relative" aria-label="Notificaciones">
+              <span class="absolute top-1 right-1 h-2 w-2 bg-[#9d3bf5] rounded-full"></span>
+              <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9" />
+              </svg>
+            </button>
+          </div>
+        </div>
+      </header>
+
+      <!-- BARRA DE CONTROLES: Buscador, Selectores y Filtros -->
+      <section class="bg-white border-b border-[#e5e7eb] px-6 lg:px-10 py-4 flex-shrink-0 z-10">
+        <div class="max-w-7xl mx-auto flex flex-col lg:flex-row lg:items-center justify-between gap-4">
+          
+          <!-- Selector de Vista + Buscador -->
+          <div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 flex-1">
+            
+            <!-- SELECTOR DE VISTA (Botones marcados en la imagen) -->
+            <div class="flex items-center border border-gray-300 rounded overflow-hidden bg-white p-1 shadow-sm flex-shrink-0 self-start sm:self-auto">
+              <!-- Botón Izquierdo: Vista Lista -->
+              <button 
+                id="btn-list-view"
+                onclick="setViewState('list')"
+                class="p-2 transition rounded focus:outline-none focus:ring-2 focus:ring-[#9d3bf5] font-medium"
+                aria-pressed="true"
+                aria-label="Vista lista"
+                title="Vista lista"
+              >
+                <!-- Icono de lista simplificado -->
+                <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <line x1="8" y1="6" x2="21" y2="6"></line>
+                  <line x1="8" y1="12" x2="21" y2="12"></line>
+                  <line x1="8" y1="18" x2="21" y2="18"></line>
+                  <line x1="3" y1="6" x2="3.01" y2="6" stroke-linecap="round" stroke-width="3"></line>
+                  <line x1="3" y1="12" x2="3.01" y2="12" stroke-linecap="round" stroke-width="3"></line>
+                  <line x1="3" y1="18" x2="3.01" y2="18" stroke-linecap="round" stroke-width="3"></line>
+                </svg>
+              </button>
+
+              <!-- Botón Derecho: Vista Panel (Cuadrícula) -->
+              <button 
+                id="btn-grid-view"
+                onclick="setViewState('grid')"
+                class="p-2 transition rounded focus:outline-none focus:ring-2 focus:ring-[#9d3bf5]"
+                aria-pressed="false"
+                aria-label="Vista panel"
+                title="Vista panel"
+              >
+                <!-- Icono de cuadrícula simplificado -->
+                <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <rect x="3" y="3" width="7" height="7" rx="1"></rect>
+                  <rect x="14" y="3" width="7" height="7" rx="1"></rect>
+                  <rect x="14" y="14" width="7" height="7" rx="1"></rect>
+                  <rect x="3" y="14" width="7" height="7" rx="1"></rect>
+                </svg>
+              </button>
+            </div>
+
+            <!-- BUSCADOR -->
+            <div class="relative flex-1">
+              <span class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-gray-400">
+                <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                </svg>
+              </span>
+              <input 
+                id="course-search"
+                type="text" 
+                placeholder="Busque sus cursos" 
+                oninput="handleSearch(this.value)"
+                class="w-full pl-9 pr-4 py-2 border border-gray-300 rounded text-sm focus:outline-none focus:ring-1 focus:ring-black focus:border-black placeholder-gray-400 transition"
+              >
+              <button 
+                id="clear-search-btn"
+                onclick="clearSearch()"
+                class="absolute inset-y-0 right-0 pr-3 flex items-center text-gray-400 hover:text-gray-600 hidden"
+                aria-label="Limpiar búsqueda"
+              >
+                <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                </svg>
+              </button>
+            </div>
+          </div>
+
+          <!-- Filtros de Período, Categoría y Páginación -->
+          <div class="flex flex-wrap items-center gap-3">
+            <!-- Períodos -->
+            <div class="flex-1 min-w-[150px] relative">
+              <label class="absolute -top-2 left-2 px-1 bg-white text-[9px] text-gray-400 font-medium z-10">Períodos</label>
+              <select 
+                id="filter-period"
+                onchange="handleFilterChange()"
+                class="w-full bg-white border border-gray-300 rounded text-xs px-3 py-2 pt-2.5 focus:outline-none focus:ring-1 focus:ring-black appearance-none cursor-pointer text-gray-700"
+              >
+                <option value="all">Todos los períodos</option>
+                <option value="favoritos">Favoritos</option>
+                <option value="semestre1">25-26 Máster Semestre 1</option>
+                <option value="online">25-26 Máster Online Semestre 1</option>
+              </select>
+              <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-500">
+                <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/></svg>
+              </div>
+            </div>
+
+            <!-- Filtros de Asignatura -->
+            <div class="flex-1 min-w-[150px] relative">
+              <label class="absolute -top-2 left-2 px-1 bg-white text-[9px] text-gray-400 font-medium z-10">Filtros</label>
+              <select 
+                id="filter-type"
+                onchange="handleFilterChange()"
+                class="w-full bg-white border border-gray-300 rounded text-xs px-3 py-2 pt-2.5 focus:outline-none focus:ring-1 focus:ring-black appearance-none cursor-pointer text-gray-700"
+              >
+                <option value="all">Todas las asignaturas</option>
+                <option value="open">Abiertas (En curso)</option>
+                <option value="only-favs">Estrella de Favorito</option>
+              </select>
+              <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-500">
+                <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/></svg>
+              </div>
+            </div>
+
+            <!-- Cantidad por página -->
+            <div class="flex items-center space-x-2 text-xs text-gray-600 flex-shrink-0">
+              <select 
+                id="pagination-size"
+                onchange="handleFilterChange()"
+                class="bg-white border border-gray-300 rounded text-xs p-1.5 focus:outline-none focus:ring-1 focus:ring-black"
+              >
+                <option value="25">25</option>
+                <option value="15">15</option>
+                <option value="10">10</option>
+                <option value="5">5</option>
+              </select>
+              <span class="whitespace-nowrap text-gray-500 text-[11px]">elementos por página</span>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- CONTENEDOR DE CONTENIDO (Se inyecta de forma dinámica la vista seleccionada) -->
+      <div class="flex-1 px-6 lg:px-10 py-6 max-w-7xl w-full mx-auto">
+        
+        <!-- Alerta de resultados de búsqueda -->
+        <div id="search-results-info" class="mb-4 text-xs text-gray-500 hidden">
+          Se han encontrado <span id="results-count" class="font-semibold text-black">0</span> asignaturas. 
+          <button onclick="clearSearch()" class="text-[#9d3bf5] hover:underline ml-1">Restablecer filtros</button>
+        </div>
+
+        <!-- Contenedor principal de transiciones -->
+        <div id="courses-view-container" class="view-transition opacity-100 space-y-8">
+          <!-- Los listados o paneles se inyectan dinámicamente con JS -->
+        </div>
+
+      </div>
+
+      <!-- FOOTER DE ESTADO -->
+      <footer class="bg-white border-t border-[#e5e7eb] py-4 px-6 lg:px-10 text-xs text-gray-400 flex flex-col sm:flex-row justify-between items-center gap-2 flex-shrink-0">
+        <div>
+          Prototipo de Blackboard Ultra - <span class="font-semibold text-gray-600">Universidad UDIT</span>
+        </div>
+        <div class="flex space-x-4">
+          <span class="flex items-center space-x-1"><span class="h-2 w-2 rounded-full bg-green-500 inline-block"></span> <span>Servidor UDIT Activo</span></span>
+          <span>© 2026 Blackboard Inc.</span>
+        </div>
+      </footer>
+
+    </main>
+
+  </div>
+
+  <!-- MENÚ MOVIL SIDEBAR -->
+  <div id="mobile-sidebar" class="fixed inset-0 bg-black/60 z-50 flex md:hidden opacity-0 pointer-events-none transition-opacity duration-300">
+    <div class="w-64 bg-[#121212] h-full flex flex-col justify-between p-4 transform -translate-x-full transition-transform duration-300" id="mobile-sidebar-panel">
+      <div>
+        <div class="flex justify-between items-center mb-6 pb-4 border-b border-[#222222]">
+          <span class="text-white font-bold text-lg">Blackboard UDIT</span>
+          <button class="text-gray-400 hover:text-white" onclick="toggleMobileMenu()">
+            <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+            </svg>
+          </button>
+        </div>
+        <div class="space-y-3">
+          <a href="#" class="block text-[#d0d0d0] hover:text-white py-2 text-sm font-medium">Inicio</a>
+          <a href="#" class="block text-[#d0d0d0] hover:text-white py-2 text-sm font-medium">Actividad</a>
+          <a href="#" class="block text-white py-2 text-sm font-semibold border-l-4 border-[#9d3bf5] pl-2 bg-[#2c2c2c]">Asignaturas</a>
+          <a href="#" class="block text-[#d0d0d0] hover:text-white py-2 text-sm font-medium">Calendario</a>
+          <a href="#" class="block text-[#d0d0d0] hover:text-white py-2 text-sm font-medium">Mensajes</a>
+          <a href="#" class="block text-[#d0d0d0] hover:text-white py-2 text-sm font-medium">Calificaciones</a>
+        </div>
+      </div>
+      <div class="pt-4 border-t border-[#222222]">
+        <div class="flex items-center space-x-3 mb-4">
+          <img class="h-9 w-9 rounded-full object-cover" src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&q=80&w=120" alt="Sonia Rodriguez">
+          <div>
+            <p class="text-xs font-semibold text-white">Sonia Rodríguez F.</p>
+            <p class="text-[10px] text-gray-400">Estudiante</p>
+          </div>
+        </div>
+        <a href="#" class="block text-[11px] text-red-400 hover:underline">Cerrar sesión</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- TOAST DE NOTIFICACIONES INTERACTIVAS -->
+  <div id="notification-toast" class="fixed bottom-5 right-5 bg-black text-white px-4 py-3 rounded-lg shadow-2xl flex items-center space-x-3 z-50 transform translate-y-20 opacity-0 transition-all duration-300">
+    <div id="toast-icon-wrapper" class="bg-[#9d3bf5] p-1.5 rounded-full">
+      <svg class="h-4 w-4 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+      </svg>
+    </div>
+    <div>
+      <p id="toast-title" class="text-xs font-bold">Estado Actualizado</p>
+      <p id="toast-message" class="text-[11px] text-gray-300">El elemento se modificó correctamente.</p>
+    </div>
+  </div>
+
+  <script>
+    // Base de datos de cursos fiel a las imágenes y con códigos reales
+    const initialCourses = [
+      {
+        id: "O_2526_4462_MAIAEDU_1",
+        code: "O_2526_4462_MAIAEDU",
+        name: "Personalización del aprendizaje_Grupo 1",
+        professor: "Sonia Rodríguez Fernández",
+        status: "Abierto",
+        period: "semestre1",
+        color: "#9d3bf5",
+        favorite: true,
+        bannerImg: "Imagenes/PersonalizacionDelAprendizaje_Grupo1.jpg"
+      },
+      {
+        id: "O_2526_4462_MAIAEDU_2",
+        code: "O_2526_4462_MAIAEDU",
+        name: "Personalización del aprendizaje_Grupo 2",
+        professor: "Sonia Rodríguez Fernández",
+        status: "Abierto",
+        period: "semestre1",
+        color: "#9d3bf5",
+        favorite: true,
+        bannerImg: "Imagenes/PersonalizacionDelAprendizaje_Grupo2.jpg"
+      },
+      {
+        id: "P_2526_4687_MAIL",
+        code: "P_2526_4687_MAIL",
+        name: "Aplicaciones analógicas",
+        professor: "Javier Chavarría",
+        status: "Abierto",
+        period: "semestre1",
+        color: "#14b8a6",
+        favorite: false,
+        bannerImg: "Imagenes/AplicacionesAnalogicas.jpg"
+      },
+      {
+        id: "P_2526_4686_MAIL",
+        code: "P_2526_4686_MAIL",
+        name: "Aplicaciones audiovisuales",
+        professor: "Múltiples profesores",
+        status: "Abierto",
+        period: "semestre1",
+        color: "#0ea5e9",
+        favorite: false,
+        bannerImg: "Imagenes/AplicacionesAudiovisuales.jpg"
+      },
+      {
+        id: "P_2526_4682_MADG",
+        code: "P_2526_4682_MADG",
+        name: "Aplicaciones Digitales y Audiovisuales",
+        professor: "Múltiples profesores",
+        status: "Abierto",
+        period: "semestre1",
+        color: "#f59e0b",
+        favorite: false,
+        bannerImg: "Imagenes/AplicacionesDigitalesyAudiovisuales.jpg"
+      },
+      {
+        id: "P_2526_4685_MAIL",
+        code: "P_2526_4685_MAIL",
+        name: "Aplicaciones Gráficas",
+        professor: "Ana María Dávila",
+        status: "Abierto",
+        period: "semestre1",
+        color: "#ec4899",
+        favorite: false,
+        bannerImg: "Imagenes/AplicacionesGraficas.jpg"
+      },
+      {
+        id: "P_2526_3843_MADI",
+        code: "P_2526_3843_MADI",
+        name: "Fundamentos de la Planimetría",
+        professor: "Laura Puchades del Olmo",
+        status: "Abierto",
+        period: "semestre1",
+        color: "#6366f1",
+        favorite: false,
+        bannerImg: "Imagenes/planimetria.jpg"
+      },
+      {
+        id: "P_2526_4701_MUDP",
+        code: "P_2526_4701_MUDP",
+        name: "Procesos de Diseño Centrado en el Usuario",
+        professor: "Múltiples profesores",
+        status: "Abierto",
+        period: "semestre1",
+        color: "#10b981",
+        favorite: false,
+        bannerImg: "https://images.unsplash.com/photo-1581291518633-83b4ebd1d83e?auto=format&fit=crop&q=80&w=400"
+      },
+      {
+        id: "O_2526_4424_MADG",
+        code: "O_2526_4424_MADG",
+        name: "Cultura Contextual y Conceptual",
+        professor: "Sonia Rodríguez Fernández",
+        status: "Abierto",
+        period: "online",
+        color: "#ef4444",
+        favorite: false,
+        bannerImg: "https://images.unsplash.com/photo-1459749411175-04bf5292ceea?auto=format&fit=crop&q=80&w=400"
+      },
+      {
+        id: "O_2526_4425_MADG",
+        code: "O_2526_4425_MADG",
+        name: "Cultura visual",
+        professor: "Sonia Rodríguez Fernández",
+        status: "Abierto",
+        period: "online",
+        color: "#f43f5e",
+        favorite: false,
+        bannerImg: "https://images.unsplash.com/photo-1579783900882-c0d3dad7b119?auto=format&fit=crop&q=80&w=400"
+      }
+    ];
+
+    let courses = [...initialCourses];
+    let currentView = 'list'; // Por defecto se inicia en 'list'
+    let searchQuery = '';
+    let filterPeriod = 'all';
+    let filterType = 'all';
+    let limitCount = 25;
+
+    // Retorna el SVG de la estrella perfectamente redondeada ("puffy star") del tono de image_1d0643.png (#9d3bf5)
+    function getPuffyStarSVG(isActive, extraClasses = "h-6 w-6") {
+      const fillAttr = isActive ? 'fill="#9d3bf5"' : 'fill="none"';
+      const strokeAttr = isActive ? 'stroke="#9d3bf5"' : 'stroke="#a0aec0"';
+      
+      // Trazado curvado y suave para imitar la silueta súper redondeada del archivo image_1d0643.png
+      return `
+        <svg class="${extraClasses} transition-all duration-200 hover:scale-110 cursor-pointer" viewBox="0 0 24 24" ${fillAttr} ${strokeAttr} stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round" xmlns="http://www.w3.org/2000/svg">
+          <path d="M12,1.5 C12.8,1.5 13.2,3.3 13.8,4.5 C14.4,5.7 16.2,6.1 17.5,6.3 C18.8,6.5 20.3,7.2 20.6,8.2 C20.9,9.2 19.5,10.5 18.5,11.5 C17.5,12.5 17.2,14.3 17.5,15.6 C17.8,16.9 17.3,18.3 16.3,18.8 C15.3,19.3 13.7,18.2 12.5,17.5 C11.3,16.8 10.7,16.8 9.5,17.5 C8.3,18.2 6.7,19.3 5.7,18.8 C4.7,18.3 4.2,16.9 4.5,15.6 C4.8,14.3 4.5,12.5 3.5,11.5 C2.5,10.5 1.1,9.2 1.4,8.2 C1.7,7.2 3.2,6.5 4.5,6.3 C5.8,6.1 7.6,5.7 8.2,4.5 C8.8,3.3 9.2,1.5 10,1.5 Z" />
+        </svg>
+      `;
+    }
+
+    function setViewState(viewType) {
+      if (currentView === viewType) return;
+      
+      const container = document.getElementById('courses-view-container');
+      
+      // Aplicar transición suave de opacidad y escala
+      container.classList.add('opacity-0', 'scale-98');
+      
+      setTimeout(() => {
+        currentView = viewType;
+        updateViewToggleButtons();
+        renderCourses();
+        container.classList.remove('opacity-0', 'scale-98');
+      }, 150);
+
+      showToast(
+        viewType === 'list' ? 'Vista Lista' : 'Vista Panel', 
+        viewType === 'list' ? 'Mostrando listado vertical de asignaturas.' : 'Mostrando cuadrícula de tarjetas.'
+      );
+    }
+
+    function updateViewToggleButtons() {
+      const btnList = document.getElementById('btn-list-view');
+      const btnGrid = document.getElementById('btn-grid-view');
+
+      if (currentView === 'list') {
+        btnList.className = "p-2 transition rounded bg-[#121212] text-white focus:outline-none focus:ring-2 focus:ring-[#9d3bf5] border border-transparent";
+        btnList.setAttribute('aria-pressed', 'true');
+        
+        btnGrid.className = "p-2 transition rounded text-gray-400 hover:bg-gray-100 hover:text-black focus:outline-none focus:ring-2 focus:ring-[#9d3bf5] border border-transparent";
+        btnGrid.setAttribute('aria-pressed', 'false');
+      } else {
+        btnGrid.className = "p-2 transition rounded bg-[#121212] text-white focus:outline-none focus:ring-2 focus:ring-[#9d3bf5] border border-transparent";
+        btnGrid.setAttribute('aria-pressed', 'true');
+        
+        btnList.className = "p-2 transition rounded text-gray-400 hover:bg-gray-100 hover:text-black focus:outline-none focus:ring-2 focus:ring-[#9d3bf5] border border-transparent";
+        btnList.setAttribute('aria-pressed', 'false');
+      }
+    }
+
+    function handleSearch(val) {
+      searchQuery = val.toLowerCase().trim();
+      const clearBtn = document.getElementById('clear-search-btn');
+      if (searchQuery.length > 0) {
+        clearBtn.classList.remove('hidden');
+      } else {
+        clearBtn.classList.add('hidden');
+      }
+      renderCourses();
+    }
+
+    function clearSearch() {
+      const searchInput = document.getElementById('course-search');
+      searchInput.value = '';
+      searchQuery = '';
+      document.getElementById('clear-search-btn').classList.add('hidden');
+      
+      document.getElementById('filter-period').value = 'all';
+      document.getElementById('filter-type').value = 'all';
+      filterPeriod = 'all';
+      filterType = 'all';
+      
+      renderCourses();
+      showToast('Filtros restablecidos', 'Mostrando todas las asignaturas por defecto.');
+    }
+
+    function handleFilterChange() {
+      filterPeriod = document.getElementById('filter-period').value;
+      filterType = document.getElementById('filter-type').value;
+      limitCount = parseInt(document.getElementById('pagination-size').value, 10);
+      renderCourses();
+    }
+
+    function toggleFavorite(id, event) {
+      if (event) event.stopPropagation();
+      
+      const index = courses.findIndex(c => c.id === id);
+      if (index !== -1) {
+        courses[index].favorite = !courses[index].favorite;
+        const isFav = courses[index].favorite;
+        
+        showToast(
+          isFav ? 'Marcado como favorito' : 'Quitado de favoritos',
+          `"${courses[index].name}" se ha actualizado en favoritos.`,
+          isFav ? 'fav' : 'default'
+        );
+        renderCourses();
+      }
+    }
+
+    function toggleMoreInfo(id, event) {
+      if (event) event.stopPropagation();
+      const panel = document.getElementById(`info-panel-${id}`);
+      const btn = document.getElementById(`info-btn-${id}`);
+      
+      if (panel.classList.contains('hidden')) {
+        panel.classList.remove('hidden');
+        btn.innerHTML = `Ocultar información <svg class="h-3 w-3 ml-1 inline" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 15l7-7 7 7" /></svg>`;
+      } else {
+        panel.classList.add('hidden');
+        btn.innerHTML = `Más información <svg class="h-3 w-3 ml-1 inline" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg>`;
+      }
+    }
+
+    function toggleContextMenu(id, event) {
+      if (event) event.stopPropagation();
+      const menu = document.getElementById(`context-menu-${id}`);
+      
+      document.querySelectorAll('[id^="context-menu-"]').forEach(el => {
+        if (el.id !== `context-menu-${id}`) el.classList.add('hidden');
+      });
+
+      menu.classList.toggle('hidden');
+
+      const closeHandler = () => {
+        menu.classList.add('hidden');
+        document.removeEventListener('click', closeHandler);
+      };
+      
+      setTimeout(() => document.addEventListener('click', closeHandler), 50);
+    }
+
+    function triggerCourseAction(action, name, event) {
+      if (event) event.stopPropagation();
+      showToast(action, `Acción ejecutada sobre: ${name}`);
+    }
+
+    function renderCourses() {
+      const container = document.getElementById('courses-view-container');
+      container.innerHTML = '';
+
+      // Aplicar filtros de búsqueda y período
+      let filtered = courses.filter(c => {
+        const matchesSearch = c.name.toLowerCase().includes(searchQuery) || 
+                              c.code.toLowerCase().includes(searchQuery) ||
+                              c.professor.toLowerCase().includes(searchQuery);
+        
+        let matchesPeriod = true;
+        if (filterPeriod === 'favoritos') {
+          matchesPeriod = c.favorite;
+        } else if (filterPeriod !== 'all') {
+          matchesPeriod = c.period === filterPeriod;
+        }
+
+        let matchesType = true;
+        if (filterType === 'only-favs') {
+          matchesType = c.favorite;
+        } else if (filterType === 'open') {
+          matchesType = c.status === 'Abierto';
+        }
+
+        return matchesSearch && matchesPeriod && matchesType;
+      });
+
+      filtered = filtered.slice(0, limitCount);
+
+      // Info de resultados de búsqueda
+      const resultsInfo = document.getElementById('search-results-info');
+      const resultsCount = document.getElementById('results-count');
+      if (searchQuery.length > 0 || filterPeriod !== 'all' || filterType !== 'all') {
+        resultsInfo.classList.remove('hidden');
+        resultsCount.innerText = filtered.length;
+      } else {
+        resultsInfo.classList.add('hidden');
+      }
+
+      if (filtered.length === 0) {
+        container.innerHTML = `
+          <div class="text-center py-16 bg-white rounded border border-gray-200 shadow-sm">
+            <svg class="h-12 w-12 mx-auto text-gray-300 mb-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
+            </svg>
+            <p class="text-sm font-semibold text-gray-700">No se encontraron asignaturas</p>
+            <p class="text-xs text-gray-400 mt-1">Pruebe con otros términos de búsqueda.</p>
+          </div>
+        `;
+        return;
+      }
+
+      // Separación de listas
+      const favoritesList = filtered.filter(c => c.favorite);
+      const sem1List = filtered.filter(c => c.period === 'semestre1' && !c.favorite);
+      const onlineList = filtered.filter(c => c.period === 'online' && !c.favorite);
+
+      if (currentView === 'list') {
+        if (favoritesList.length > 0) {
+          renderBlockList('Favoritos', favoritesList, container, true);
+        }
+        if (sem1List.length > 0) {
+          renderBlockList('25-26 Máster Semestre 1', sem1List, container, false);
+        }
+        if (onlineList.length > 0) {
+          renderBlockList('25-26 Máster Online Semestre 1', onlineList, container, false);
+        }
+      } else {
+        if (favoritesList.length > 0) {
+          renderBlockGrid('Favoritos', favoritesList, container, true);
+        }
+        if (sem1List.length > 0) {
+          renderBlockGrid('25-26 Máster Semestre 1', sem1List, container, false);
+        }
+        if (onlineList.length > 0) {
+          renderBlockGrid('25-26 Máster Online Semestre 1', onlineList, container, false);
+        }
+      }
+    }
+
+    function renderBlockList(title, list, container, isFavBlock) {
+      const block = document.createElement('div');
+      block.className = "space-y-3";
+
+      let blockHeaderIcon = isFavBlock ? `
+        <span class="mr-2 text-[#9d3bf5] inline-block scale-90">${getPuffyStarSVG(true, "h-5 w-5")}</span>
+      ` : `
+        <svg class="h-4 w-4 text-gray-500 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
+        </svg>
+      `;
+
+      block.innerHTML = `
+        <h2 class="text-sm font-bold text-gray-800 flex items-center border-b border-gray-200 pb-2 mb-3 tracking-wide">
+          ${blockHeaderIcon}
+          <span>${title}</span>
+        </h2>
+        <div class="space-y-2.5">
+          ${list.map(c => {
+            const starSvg = getPuffyStarSVG(c.favorite, "h-5 w-5");
+            return `
+              <div class="bg-white border border-gray-200 rounded shadow-sm hover:shadow transition relative overflow-hidden">
+                <!-- Línea lateral identificadora -->
+                <div class="absolute left-0 top-0 bottom-0 w-1.5" style="background-color: ${c.color};"></div>
+                
+                <div class="pl-5 pr-4 py-3.5 flex flex-col md:flex-row md:items-center justify-between gap-3 text-xs">
+                  <!-- Título y código -->
+                  <div class="flex-1 min-w-0 pr-4">
+                    <p class="text-[10px] text-gray-400 font-mono mb-0.5">${c.code}</p>
+                    <h3 class="text-sm font-semibold text-gray-900 truncate hover:text-[#9d3bf5] cursor-pointer" onclick="toggleMoreInfo('${c.id}', event)">
+                      ${c.name}
+                    </h3>
+                  </div>
+
+                  <!-- Datos de la asignatura -->
+                  <div class="flex flex-wrap items-center gap-x-6 gap-y-1 text-gray-500 md:text-right md:justify-end">
+                    <span class="bg-green-50 text-green-700 px-2.5 py-0.5 rounded text-[10px] font-medium border border-green-200 flex items-center">
+                      <span class="h-1.5 w-1.5 bg-green-500 rounded-full mr-1.5"></span> ${c.status}
+                    </span>
+                    <span class="text-gray-700 font-medium text-[11px] border-l border-gray-200 pl-4 py-0.5">
+                      ${c.professor}
+                    </span>
+                    <button 
+                      id="info-btn-${c.id}"
+                      onclick="toggleMoreInfo('${c.id}', event)"
+                      class="text-[#9d3bf5] hover:text-purple-800 font-semibold focus:outline-none flex items-center"
+                    >
+                      <span>Más información</span>
+                      <svg class="h-3 w-3 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                      </svg>
+                    </button>
+                  </div>
+
+                  <!-- Menú y Favoritos -->
+                  <div class="flex items-center space-x-2 border-t md:border-t-0 pt-2 md:pt-0 border-gray-100 justify-end flex-shrink-0">
+                    <button 
+                      onclick="toggleFavorite('${c.id}', event)"
+                      class="p-1 hover:bg-gray-100 rounded transition"
+                      aria-label="Marcar como favorito"
+                    >
+                      ${starSvg}
+                    </button>
+
+                    <div class="relative">
+                      <button 
+                        onclick="toggleContextMenu('${c.id}', event)"
+                        class="p-1.5 hover:bg-gray-100 rounded text-gray-500 hover:text-black transition"
+                        aria-label="Opciones de curso"
+                      >
+                        <svg class="h-4.5 w-4.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 5v.01M12 12v.01M12 19v.01M12 6a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2z" />
+                        </svg>
+                      </button>
+
+                      <div id="context-menu-${c.id}" class="absolute right-0 mt-1 w-48 bg-white border border-gray-200 rounded shadow-lg z-30 hidden py-1">
+                        <button onclick="triggerCourseAction('Detalles', '${c.name}', event)" class="w-full text-left px-3 py-1.5 text-xs text-gray-700 hover:bg-gray-100 transition">Ver detalles del curso</button>
+                        <button onclick="triggerCourseAction('Ocultar', '${c.name}', event)" class="w-full text-left px-3 py-1.5 text-xs text-gray-700 hover:bg-gray-100 transition">Ocultar asignatura</button>
+                        <button onclick="toggleFavorite('${c.id}', event)" class="w-full text-left px-3 py-1.5 text-xs text-gray-700 hover:bg-gray-100 transition">
+                          ${c.favorite ? 'Quitar de Favoritos' : 'Agregar a Favoritos'}
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+
+                </div>
+
+                <!-- Detalle desplegable de asignatura -->
+                <div id="info-panel-${c.id}" class="hidden bg-slate-50 border-t border-gray-100 px-6 py-4 text-xs text-gray-600">
+                  <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <div>
+                      <p class="font-bold text-gray-800 uppercase text-[9px] tracking-wider mb-1">Estructura Curricular</p>
+                      <p class="mb-1">Créditos oficiales: <span class="font-semibold text-gray-900">6.0 ECTS</span></p>
+                      <p>Identificador interno: <span class="font-semibold text-gray-900">${c.id}</span></p>
+                    </div>
+                    <div>
+                      <p class="font-bold text-gray-800 uppercase text-[9px] tracking-wider mb-1">Tutorías Docentes</p>
+                      <p class="text-gray-900 font-medium">${c.professor}</p>
+                      <p class="text-gray-400 mt-1">Soporte disponible mediante mensajería Ultra.</p>
+                    </div>
+                    <div>
+                      <p class="font-bold text-gray-800 uppercase text-[9px] tracking-wider mb-1">Herramientas del Aula</p>
+                      <div class="flex gap-2 mt-1.5">
+                        <a href="#" class="px-3 py-1.5 bg-[#121212] text-white rounded text-[11px] hover:bg-gray-800 transition">Ver Aula</a>
+                        <a href="#" class="px-3 py-1.5 border border-gray-300 rounded text-[11px] text-gray-700 hover:bg-gray-100 transition">Plan Docente</a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+            `;
+          }).join('')}
+        </div>
+      `;
+      container.appendChild(block);
+    }
+
+    function renderBlockGrid(title, list, container, isFavBlock) {
+      const block = document.createElement('div');
+      block.className = "space-y-4";
+
+      let blockHeaderIcon = isFavBlock ? `
+        <span class="mr-2 text-[#9d3bf5] inline-block scale-90">${getPuffyStarSVG(true, "h-5 w-5")}</span>
+      ` : `
+        <svg class="h-4 w-4 text-gray-500 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
+        </svg>
+      `;
+
+      block.innerHTML = `
+        <h2 class="text-sm font-bold text-gray-800 flex items-center border-b border-gray-200 pb-2 mb-4 tracking-wide">
+          ${blockHeaderIcon}
+          <span>${title}</span>
+        </h2>
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+          ${list.map(c => {
+            const starSvg = getPuffyStarSVG(c.favorite, "h-5 w-5");
+            return `
+              <div class="bg-white border border-gray-200 rounded shadow-sm hover:shadow-lg transition-all duration-300 flex flex-col justify-between overflow-hidden group">
+                
+                <!-- Encabezado con foto/fallback de la materia -->
+                <div class="relative h-28 bg-gray-50 overflow-hidden border-b border-gray-100">
+                  <img class="absolute inset-0 h-full w-full object-cover group-hover:scale-105 transition-transform duration-500" src="${c.bannerImg}" alt="${c.name}">
+                  <div class="absolute inset-x-0 bottom-0 h-8 bg-gradient-to-t from-black/20 to-transparent"></div>
+                  
+                  <span class="absolute top-2 left-2 bg-[#121212]/85 text-white px-2 py-0.5 rounded text-[9px] font-medium tracking-wide">
+                    ${c.status}
+                  </span>
+                  
+                  <!-- Borde del color de la asignatura en el fondo del banner -->
+                  <div class="absolute bottom-0 left-0 right-0 h-1" style="background-color: ${c.color};"></div>
+                </div>
+
+                <!-- Cuerpo de la tarjeta -->
+                <div class="p-4 flex-1 flex flex-col justify-between">
+                  <div>
+                    <p class="text-[9px] text-gray-400 font-mono tracking-tight mb-1">${c.code}</p>
+                    <h3 class="text-xs font-bold text-gray-900 mb-1 line-clamp-2 group-hover:text-[#9d3bf5] transition cursor-pointer" onclick="toggleMoreInfo('${c.id}', event)">
+                      ${c.name}
+                    </h3>
+                    <p class="text-[11px] text-gray-500 truncate mb-3">${c.professor}</p>
+                  </div>
+
+                  <div class="border-t border-gray-100 pt-3">
+                    <button 
+                      id="info-btn-${c.id}"
+                      onclick="toggleMoreInfo('${c.id}', event)"
+                      class="text-[11px] text-[#9d3bf5] hover:text-purple-800 font-semibold flex items-center focus:outline-none"
+                    >
+                      <span>Más información</span>
+                      <svg class="h-3 w-3 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                      </svg>
+                    </button>
+                  </div>
+                </div>
+
+                <!-- Acciones inferiores de la tarjeta -->
+                <div class="px-4 py-2.5 bg-gray-50 border-t border-gray-100 flex items-center justify-between">
+                  <span class="text-[10px] text-gray-400 font-medium">UDIT Máster</span>
+                  
+                  <div class="flex items-center space-x-1">
+                    <button 
+                      onclick="toggleFavorite('${c.id}', event)"
+                      class="p-1 hover:bg-gray-200 rounded transition"
+                      aria-label="Marcar como favorito"
+                    >
+                      ${starSvg}
+                    </button>
+
+                    <div class="relative">
+                      <button 
+                        onclick="toggleContextMenu('${c.id}', event)"
+                        class="p-1 hover:bg-gray-200 rounded text-gray-500 hover:text-black transition"
+                        aria-label="Opciones de curso"
+                      >
+                        <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 5v.01M12 12v.01M12 19v.01M12 6a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2z" />
+                        </svg>
+                      </button>
+
+                      <div id="context-menu-${c.id}" class="absolute right-0 bottom-full mb-1 w-48 bg-white border border-gray-200 rounded shadow-lg z-30 hidden py-1">
+                        <button onclick="triggerCourseAction('Detalles', '${c.name}', event)" class="w-full text-left px-3 py-1.5 text-xs text-gray-700 hover:bg-gray-100 transition">Ver detalles del curso</button>
+                        <button onclick="triggerCourseAction('Ocultar', '${c.name}', event)" class="w-full text-left px-3 py-1.5 text-xs text-gray-700 hover:bg-gray-100 transition">Ocultar asignatura</button>
+                        <button onclick="toggleFavorite('${c.id}', event)" class="w-full text-left px-3 py-1.5 text-xs text-gray-700 hover:bg-gray-100 transition">
+                          ${c.favorite ? 'Quitar de Favoritos' : 'Agregar a Favoritos'}
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Detalle oculto de la tarjeta -->
+                <div id="info-panel-${c.id}" class="hidden bg-slate-50 border-t border-gray-200 p-3 text-[11px] text-gray-600">
+                  <p class="font-bold text-gray-800 mb-0.5">Asignado a:</p>
+                  <p class="mb-2 text-gray-900">${c.professor}</p>
+                  <div class="flex flex-col gap-1">
+                    <a href="#" class="text-[#9d3bf5] hover:underline font-semibold">Acceder al Aula Virtual</a>
+                    <a href="#" class="text-[#9d3bf5] hover:underline font-semibold">Plan Curricular</a>
+                  </div>
+                </div>
+
+              </div>
+            `;
+          }).join('')}
+        </div>
+      `;
+      container.appendChild(block);
+    }
+
+    function showToast(title, message, type = 'default') {
+      const toast = document.getElementById('notification-toast');
+      const toastTitle = document.getElementById('toast-title');
+      const toastMsg = document.getElementById('toast-message');
+      const iconWrapper = document.getElementById('toast-icon-wrapper');
+
+      toastTitle.innerText = title;
+      toastMsg.innerText = message;
+
+      if (type === 'fav') {
+        iconWrapper.className = "bg-[#9d3bf5] p-1 rounded-full text-white";
+        iconWrapper.innerHTML = getPuffyStarSVG(true, "h-4.5 w-4.5");
+      } else {
+        iconWrapper.className = "bg-[#9d3bf5] p-1.5 rounded-full text-white";
+        iconWrapper.innerHTML = `
+          <svg class="h-4 w-4 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+          </svg>
+        `;
+      }
+
+      toast.classList.remove('translate-y-20', 'opacity-0');
+      setTimeout(() => {
+        toast.classList.add('translate-y-20', 'opacity-0');
+      }, 3000);
+    }
+
+    function toggleMobileMenu() {
+      const sidebar = document.getElementById('mobile-sidebar');
+      const panel = document.getElementById('mobile-sidebar-panel');
+      
+      if (sidebar.classList.contains('opacity-0')) {
+        sidebar.classList.remove('opacity-0', 'pointer-events-none');
+        panel.classList.remove('-translate-x-full');
+      } else {
+        sidebar.classList.add('opacity-0', 'pointer-events-none');
+        panel.classList.add('-translate-x-full');
+      }
+    }
+
+    window.addEventListener('DOMContentLoaded', () => {
+      // Forzar renderizado y estados de botones iniciales
+      updateViewToggleButtons();
+      renderCourses();
+    });
+  </script>
+</body>
+</html>
